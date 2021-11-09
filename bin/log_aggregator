@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/log_aggregator'
+
+if ARGV.length > 0
+  LogAggregator.new(ARGV[0]).display_by_frequency!
+else
+  STDERR.puts "No filename provided"
+  exit 1
+end
