@@ -30,6 +30,7 @@ describe "Smoke Test" do
       subject
       expect($?.exitstatus).to eq 0
       expect(subject.lines.count).to be > 5
+      expect(subject).to include "/about/2 90 views"
     end
   end
 
@@ -40,6 +41,7 @@ describe "Smoke Test" do
       subject
       expect($?.exitstatus).to eq 0
       expect(subject.lines.count).to be > 3
+      expect(subject).to include "/about/2 22 views"
     end
   end
 end

@@ -15,11 +15,11 @@ module LogAggregator
 
   def self.simplified_aggregation(filename)
     ingester = Ingester.new(filename)
-    TallyPresenter.new(Tally.new(ingester)).to_a
+    TallyPresenter.new(Tally.new(ingester, tally_operation: Tally.unique_operation)).to_a
   end
 
   def self.naive_aggregation(filename)
     ingester = Ingester.new(filename)
-    TallyPresenter.new(Tally.new(ingester, tally_operation: Tally.unique_operation)).to_a
+    TallyPresenter.new(Tally.new(ingester)).to_a
   end
 end
