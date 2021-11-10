@@ -1,6 +1,6 @@
 describe "Smoke Test" do
   subject { `#{command} 2>&1` }
-  let(:command) { "./bin/log_aggregator spec/fixtures/webserver.log" }
+  let(:command) { "./exe/log_aggregator spec/fixtures/webserver.log" }
 
   after do |example|
     # If these tests fail, we would like to know why
@@ -8,7 +8,7 @@ describe "Smoke Test" do
   end
 
   context "with no filename" do
-    let(:command) { "./bin/log_aggregator" }
+    let(:command) { "./exe/log_aggregator" }
     it "provides useful debugging information" do
       subject
       expect($?.exitstatus).to eq 1
@@ -17,7 +17,7 @@ describe "Smoke Test" do
   end
 
   context "with a invalid file" do
-    let(:command) { "./bin/log_aggregator does_not_exist.log" }
+    let(:command) { "./exe/log_aggregator does_not_exist.log" }
     it "provides useful debugging information" do
       subject
       expect($?.exitstatus).to eq 1
@@ -34,7 +34,7 @@ describe "Smoke Test" do
   end
 
   context "with a --unique flag" do
-    let(:command) { "./bin/log_aggregator --unique spec/fixtures/webserver.log" }
+    let(:command) { "./exe/log_aggregator --unique spec/fixtures/webserver.log" }
 
     it "accepts the log file" do
       subject
