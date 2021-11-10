@@ -1,22 +1,16 @@
 #!/usr/bin/env ruby
 
-require_relative "./log_aggregator/version"
+Dir[File.join(File.dirname(__FILE__), "log_aggregator", "*.rb")].each do |source|
+  require_relative source
+end
 
-class LogAggregator
-  class Error < StandardError; end
-
-  def initialize(filename)
-    @file_lines = File.read(filename)
-                      .lines
-                      .map { |line| line.strip.split(/\s+/) }
+module LogAggregator
+  def self.print_processed_file(filename)
+    puts *process(filename)
   end
 
-  def display_by_frequency!
-    # We could use Array#tally here, however we'll do it the hard way for
-    # backwards compatability
-    @file_lines.each_with_object({}) do |path_and_ip_arr, hash|
-      hash[path_and_ip_arr.first] ||= 0
-      hash[path_and_ip_arr.first] += 1
-    end.map { |path_and_tally| path_and_tally.join(" ")}
+  def self.process(filename)
+    ingester = Ingester.new(filename)
+    TallyPresenter.new(Tally.new(ingester)).to_a
   end
 end

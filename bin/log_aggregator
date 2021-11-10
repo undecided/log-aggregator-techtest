@@ -3,7 +3,7 @@
 require_relative '../lib/log_aggregator'
 
 if ARGV.length > 0
-  puts *LogAggregator.new(ARGV[0]).display_by_frequency!
+  LogAggregator.print_processed_file ARGV[0]
 else
   STDERR.puts "No filename provided"
   exit 1

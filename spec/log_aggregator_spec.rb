@@ -1,9 +1,9 @@
 describe LogAggregator do
-  describe "#display_by_frequency" do
-    context "given a list of web pages with ip addresses" do
-      let(:log_filename) { "./spec/fixtures/simplified_happy_path.log" }
-      subject { described_class.new(log_filename).display_by_frequency! }
+  describe "#process" do
+    subject { described_class.process(log_filename) }
+    let(:log_filename) { "./spec/fixtures/simplified_happy_path.log" }
 
+    context "given a list of web pages with ip addresses" do
       it "presents a single line for each web page given" do
         expect(subject).to eq [
           "/about 2",
