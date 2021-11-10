@@ -6,9 +6,9 @@ describe LogAggregator do
     context "given a list of web pages with ip addresses" do
       it "presents a single line for each web page given" do
         expect(subject).to eq [
-          "/help_page/1 3",
-          "/about 2",
-          "/index 1",
+          "/help_page/1 3 views",
+          "/about 2 views",
+          "/index 1 views", # TODO: Nicer pluralisation would be better
         ]
       end
     end
