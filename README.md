@@ -13,9 +13,6 @@ Expected inputs (as a text file):
 
 Ultimately, the purpose of this log aggregator is as a coding test.
 
-## Ruby version support
-
-I have checked this with Ruby 2.4 and 3.0.1, so most installations should have no trouble.
 
 ## Things I've done differently
 
@@ -28,11 +25,22 @@ For example, as a tool for my own purposes, I might have stopped at
 
 ## Things I didn't get time for:
 
+ - rubocop / standardrb - normally would, not sure why I didn't this time
  - fix the pluralisation of "views" in the output
  - replacing missing values with graceful messages
  - accepting log entries via a pipe or other stdin redirect
  - colour coding the output
  - check handling of special codepage files (UTF-8 should work fine in most rubies)
+
+## Important design decisions:
+
+ - Strictly no inheritance. Composition instead. I wouldn't usually be this strict.
+ - 3-line methods - with some small exceptions. This is relatively normal for me.
+ - named method params unless obvious: again, something I tend to be quite strict on.
+
+## Ruby version support
+
+ I have checked this with Ruby 2.4 and 3.0.1, so most installations should have no trouble.
 
 ## Installation
 

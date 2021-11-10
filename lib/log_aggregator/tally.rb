@@ -1,6 +1,4 @@
 module LogAggregator
-  # We could leverage Array#tally here, however we'll do it the hard way for
-  # backwards compatability
   class Tally
     def self.default_operation
       -> (array, ip) { array.push(ip) }

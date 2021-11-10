@@ -13,7 +13,7 @@ describe LogAggregator::Tally do
 
     context "using the default operation" do
       it "produces a hash mapping paths to their frequency" do
-        expect(subject).to eq({"/baz/1"=>2, "/foo/bar"=>2})
+        expect(subject).to eq({"/baz/1" => 2, "/foo/bar" => 2})
       end
     end
 
