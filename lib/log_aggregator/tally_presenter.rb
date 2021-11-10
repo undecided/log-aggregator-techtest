@@ -5,7 +5,10 @@ module LogAggregator
     end
 
     def to_a
-      @tally.map { |path_and_tally| path_and_tally.join(" ")}
+      @tally
+        .sort_by { |line| line.last }
+        .reverse
+        .map { |path_and_tally| path_and_tally.join(" ")}
     end
   end
 end

@@ -7,5 +7,17 @@ describe LogAggregator::TallyPresenter do
       expect(subject).to be_an Array
     end
 
+    context "given randomly ordered input" do
+      let(:input) { {"foo" => 1, "bar" => 3, "baz" => 2} }
+
+      it "orders the output by highest number" do
+        expect(subject).to eq [
+          "bar 3",
+          "baz 2",
+          "foo 1",
+        ]
+      end
+    end
+
   end
 end
