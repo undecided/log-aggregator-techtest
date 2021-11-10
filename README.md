@@ -1,38 +1,71 @@
 # LogAggregator
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/log_aggregator`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Purpose
 
-TODO: Delete this and the text above, and describe your gem
+The log aggregator exists to count path entries in a simplified server access log.
+
+Expected inputs (as a text file):
+```
+/some/path 1.2.3.4
+/other/uri 1.2.3.4
+/other/uri 4.3.2.1
+```
+
+Ultimately, the purpose of this log aggregator is as a coding test.
+
+## Ruby version support
+
+I have checked this with Ruby 2.4 and 3.0.1, so most installations should have no trouble.
+
+## Things I've done differently
+
+ - the provided log is in spec/fixtures/webserver.log
+ - the log file has added entries, just to ensure that I handle error cases gracefully
+ - I have purposefully over-engineered this solution. Feel free to explore the git history.
+
+For example, as a tool for my own purposes, I might have stopped at
+[the version at this commit](https://github.com/undecided/log-aggregator-techtest/blob/a8df80ae31e68944c2db1e6d2846151766231a94/lib/log_aggregator.rb)
+
+## Things I didn't get time for:
+
+ - fix the pluralisation of "views" in the output
+ - replacing missing values with graceful messages
+ - accepting log entries via a pipe or other stdin redirect
+ - colour coding the output
+ - check handling of special codepage files (UTF-8 should work fine in most rubies)
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'log_aggregator'
-```
-
-And then execute:
+To run this without installing it, check out the repository and from the main directory:
 
     $ bundle install
+    $ ./exe/log_aggregator spec/fixtures/webserver.log
 
-Or install it yourself as:
+To install this as an application, build the gem and then install it:
 
-    $ gem install log_aggregator
+    $ gem build log_aggregator.gemspec
+    $ gem install ./log_aggregator-0.1.0.gem
+
+If your path is set up correctly, you should be able to execute the program with:
+
+    $ log_aggregator spec/fixtures/webserver.log
+
 
 ## Usage
 
-TODO: Write usage instructions here
+To aggregate only based on path, use:
 
-## Development
+    $ log_aggregator path/to/webserver.log
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+However, to tally each IP address visiting a given page only once, use:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+    $ log_aggregator --unique path/to/webserver.log
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/log_aggregator.
+This is a tech test, so I think contributing would be technically cheating.
+
+However, I look forward to the opportunity to pair on this at some point!
 
 
 ## License
