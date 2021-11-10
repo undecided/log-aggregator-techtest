@@ -2,9 +2,14 @@
 
 require_relative '../lib/log_aggregator'
 
-if ARGV.length > 0
-  LogAggregator.print_processed_file ARGV[0]
+filename = ARGV.grep(/^[^-]{2}/).first
+flag = ARGV.grep(/^--.+/).first
+
+if filename && flag == "--unique"
+  LogAggregator.print_simplified_aggregation filename
+elsif filename && File.exists?(filename)
+  LogAggregator.print_naive_aggregation filename
 else
-  STDERR.puts "No filename provided"
+  STDERR.puts "No valid filename provided"
   exit 1
 end

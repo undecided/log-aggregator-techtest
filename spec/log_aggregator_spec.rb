@@ -1,6 +1,6 @@
 describe LogAggregator do
-  describe "#process" do
-    subject { described_class.process(log_filename) }
+  describe "#simplified_aggregation" do
+    subject { described_class.simplified_aggregation(log_filename) }
     let(:log_filename) { "./spec/fixtures/simplified_happy_path.log" }
 
     context "given a list of web pages with ip addresses" do
