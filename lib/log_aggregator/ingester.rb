@@ -6,7 +6,7 @@ module LogAggregator
 
     def to_a
       @file.lines
-           .map { |line| line.strip.split(/\s+/) }
+        .map { |line| line.strip.split(/\s+/) }
     end
   end
 end

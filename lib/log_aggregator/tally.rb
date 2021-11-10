@@ -1,11 +1,11 @@
 module LogAggregator
   class Tally
     def self.default_operation
-      -> (array, ip) { array.push(ip) }
+      ->(array, ip) { array.push(ip) }
     end
 
     def self.unique_operation
-      -> (array, ip) { array | [ip] }
+      ->(array, ip) { array | [ip] }
     end
 
     def initialize(ingester, tally_operation: self.class.default_operation)

@@ -9,7 +9,7 @@ module LogAggregator
       @tally
         .sort_by { |line| line.last }
         .reverse
-        .map { |(path, tally)| "#{path} #{tally} #{@noun}"}
+        .map { |(path, tally)| "#{path} #{tally} #{@noun}" }
     end
   end
 end

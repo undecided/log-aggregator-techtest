@@ -4,7 +4,7 @@ describe "Smoke Test" do
 
   after do |example|
     # If these tests fail, we would like to know why
-    STDERR.puts subject if example.exception
+    warn subject if example.exception
   end
 
   context "with no filename" do

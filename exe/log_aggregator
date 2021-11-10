@@ -1,15 +1,15 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/log_aggregator'
+require_relative "../lib/log_aggregator"
 
 filename = ARGV.grep(/^[^-]{2}/).first
 flag = ARGV.grep(/^--.+/).first
 
 if filename && flag == "--unique"
   LogAggregator.print_simplified_aggregation filename
-elsif filename && File.exists?(filename)
+elsif filename && File.exist?(filename)
   LogAggregator.print_naive_aggregation filename
 else
-  STDERR.puts "No valid filename provided"
+  warn "No valid filename provided"
   exit 1
 end

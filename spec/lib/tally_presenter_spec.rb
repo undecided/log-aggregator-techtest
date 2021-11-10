@@ -8,12 +8,11 @@ describe LogAggregator::TallyPresenter do
     end
 
     context "given randomly ordered input" do
-
       it "orders the output by highest number" do
         expect(subject).to eq [
           "bar 3 views",
           "baz 2 views",
-          "foo 1 views",
+          "foo 1 views"
         ]
       end
     end
@@ -25,10 +24,9 @@ describe LogAggregator::TallyPresenter do
         expect(subject).to eq [
           "bar 3 unique views",
           "baz 2 unique views",
-          "foo 1 unique views",
+          "foo 1 unique views"
         ]
       end
     end
-
   end
 end

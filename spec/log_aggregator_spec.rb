@@ -8,10 +8,9 @@ describe LogAggregator do
         expect(subject).to eq [
           "/help_page/1 3 views",
           "/about 2 views",
-          "/index 1 views", # TODO: Nicer pluralisation would be better
+          "/index 1 views" # TODO: Nicer pluralisation would be better
         ]
       end
     end
-
   end
 end

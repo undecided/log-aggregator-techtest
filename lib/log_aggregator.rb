@@ -6,11 +6,11 @@ end
 
 module LogAggregator
   def self.print_simplified_aggregation(filename)
-    puts *simplified_aggregation(filename)
+    puts(*simplified_aggregation(filename))
   end
 
   def self.print_naive_aggregation(filename)
-    puts *naive_aggregation(filename)
+    puts(*naive_aggregation(filename))
   end
 
   def self.simplified_aggregation(filename)

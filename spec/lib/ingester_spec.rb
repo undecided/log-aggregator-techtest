@@ -6,6 +6,5 @@ describe LogAggregator::Ingester do
     it "returns an array of tokenized lines" do
       expect(subject).to be_an Array
     end
-
   end
 end

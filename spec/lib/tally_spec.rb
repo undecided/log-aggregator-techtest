@@ -22,9 +22,8 @@ describe LogAggregator::Tally do
       let(:operation) { described_class.unique_operation }
 
       it "produces a hash mapping paths to their unique frequency" do
-        expect(subject).to eq({"/baz/1"=>2, "/foo/bar"=>1})
+        expect(subject).to eq({"/baz/1" => 2, "/foo/bar" => 1})
       end
     end
   end
-
 end
