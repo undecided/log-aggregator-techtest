@@ -25,7 +25,6 @@ For example, as a tool for my own purposes, I might have stopped at
 
 ## Things I didn't get time for:
 
- - rubocop / standardrb - normally would, not sure why I didn't this time
  - fix the pluralisation of "views" in the output
  - replacing missing values with graceful messages
  - accepting log entries via a pipe or other stdin redirect
@@ -37,6 +36,7 @@ For example, as a tool for my own purposes, I might have stopped at
  - Strictly no inheritance. Composition instead. I wouldn't usually be this strict.
  - 3-line methods - with some small exceptions. This is relatively normal for me.
  - named method params unless obvious: again, something I tend to be quite strict on.
+ - Used standardrb (rather than rubocop) as the linter.
 
 ## Ruby version support
 
